@@ -1,0 +1,22 @@
+class Solution {
+    public int longestNiceSubarray(int[] nums) {
+        if(nums.length ==1)
+        {
+            return 1;
+        }
+        int result=nums[0];
+       int  left=0;
+        int maxlen=0;
+        for(int i=1;i<nums.length;i++)
+        {
+             while((result & nums[i]) != 0)
+             {
+                result ^= nums[left++];
+             }
+             result |= nums[i];
+             maxlen=Math.max(maxlen,i-left+1);
+        }
+        return maxlen;
+        
+    }
+}
