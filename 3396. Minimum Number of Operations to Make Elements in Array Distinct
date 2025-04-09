@@ -1,0 +1,14 @@
+class Solution {
+    public int minimumOperations(int[] nums) {
+        HashSet<Integer> h= new HashSet<>();
+        for(int i=nums.length-1 ;i>=0;i--)
+        {
+                if(h.contains(nums[i]))
+                {  System.out.println(i);
+                    return  (i/3)+1;
+                }
+                h.add(nums[i]);
+        }
+        return 0;
+    }
+}
